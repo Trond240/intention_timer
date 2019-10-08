@@ -43,9 +43,10 @@ aside {
 
 
 input {
+  border: 0;
   background: #46424D;
   border-color: #46424D;
-  border-bottom-color: white;
+  border-bottom: solid 1px white;
   color: white;
 }
 
@@ -74,7 +75,7 @@ input {
 h2, .aside-title, .section-title {
   color: #FFFFFF;
   padding-top: 20px;
-  
+
 }
 
 .category {
