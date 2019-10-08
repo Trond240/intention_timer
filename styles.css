@@ -1,0 +1,135 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.full-page {
+  display: flex;
+  flex-direction: row;
+}
+
+/* header section */
+
+header {
+  background-color: #46424D;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3em;
+  color: white;
+  font-weight: 100;
+}
+
+aside {
+  height: 900px;
+  width: 70%;
+  background-color: #2B2733;
+  border-right: solid 2px #46424D;
+  display: flex;
+  justify-content: center;
+}
+ label {
+   color: white;
+ }
+
+
+input {
+  background: #46424D;
+  border-color: #46424D;
+  border-bottom-color: white;
+  color: white;
+}
+
+.activity-form {
+  background-color: #46424D;
+  margin: 4% 2%;
+  padding: 1.5% 2%;
+  width: 90%;
+  height: 80%;
+  border-radius: 4px;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.btn {
+  height: 70px;
+  width: 180px;
+  background-color: #46424D;
+  color: #FFFFFF;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  padding-top: 14px;
+}
+
+h2, .aside-title, .section-title {
+  color: #FFFFFF;
+  padding-top: 20px;
+
+}
+
+.category {
+  color: #FFFFFF;
+  padding-bottom: 20px;
+}
+
+.form-activity-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.goal {
+  display: flex;
+  align-content: center;
+}
+
+.goal-input {
+  padding-top: 20%;
+}
+
+.bottom-form {
+  /* display: flex;
+  justify-content: space-between; */
+  padding-top: 30%;
+}
+
+.study-button {
+  background-color: #46424D;
+  background-image: url('study.svg');
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: top center;
+  /* display: flex;
+  align-content: center; */
+}
+
+.meditate-button {
+  background-color: #46424D;
+  background-image: url('meditate.svg');
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: top center;
+}
+
+.exercise-button {
+  background-color: #46424D;
+  background-image: url('exercise.svg');
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: top center;
+}
+ main {
+   height: 900px;
+   width: 30%;
+   background-color: #2B2733;
+   border-left: solid 2px #46424D;
+ }

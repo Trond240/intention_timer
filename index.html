@@ -1,34 +1,43 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang='en' dir='ltr'>
   <head>
-    <link rel="stylesheet" href="styles.css">
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='styles.css'>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400|Roboto&display=swap" rel="stylesheet">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Intention Timer</title>
   </head>
   <body>
-    <header>
-      <h1></h1>
-    </header>
-    <div class="">
-      <aside class="">
-        <form class="" action="index.html" method="post">
-          <h2></h2>
-          <button type="button" name="study"><img src="" alt=""></button>
-          <button type="button" name="meditate"><img src="" alt=""></button>
-          <button type="button" name="exercise"><img src="" alt=""></button>
-          <p></p>
-          <input type="text" name="goal" value="">
-          <label for=""></label>
-          <label for=""></label>
-          <input type="text" name="minutes" value="">
-          <input type="text" name="seconds" value="">
-          <button type="button" name="start activity"></button>
+  <header>
+    <h1>Intention Timer</h1>
+  </header>
+    <div class='full-page'>
+      <aside class= 'aside-form'>
+        <!-- <h2 class='aside-title'>New Activity</h2> -->
+        <form class= 'activity-form'>
+          <h2 class='category'>Select Category:</h2>
+          <div class='form-activity-buttons'>
+            <button class='study-button btn'>Study</button>
+            <button class='meditate-button btn'>Meditate</button>
+            <button class ='exercise-button btn'>Exercise</button>
+          </div>
+          <div class="goal-input">
+          <label for='What would you like to accomplish during this time?'>What would you like to accomplish during this time?</label>
+          <input class ='goal' type='text'>
+          </div>
+          <div class='bottom-form'>
+            <label for='Minutes'>Minutes</label>
+            <input class='minutes' type='number'>
+            <label for='seconds'>Seconds<label>
+            <input class='seconds' type='number'>
+          </div>
+          <button>Start Activity</button>
         </form>
-       </aside>
-      <main>
-        <h2></h2>
-        <p></p>
-      </main>
+      </aside>
+  <main>
+      <h2>Past Activities</h2>
+      <p class='section-title'>You haven't logged any activities yet. Complete the form to the left to get started.
+  </main>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>
