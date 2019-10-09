@@ -43,12 +43,11 @@ label {
  }
 
 input {
-  border: 0;
   background: #46424D;
   border-color: #46424D;
   border-top: 0;
   border-left: 0;
-  border-bottom-color: white;
+  border-bottom: solid 2px white;
   color: white;
 }
 

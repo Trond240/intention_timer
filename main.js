@@ -1,17 +1,47 @@
 // Functions to change button colors
 
 var studyButton = document.querySelector('.study-button');
-
 var meditateButton = document.querySelector('.meditate-button');
-var excerciseButton = document.querySelector('.excercise-button');
+var exerciseButton = document.querySelector('.exercise-button');
 var minutesInput = document.querySelector('.minutes');
 var secondsInput = document.querySelector('.seconds');
 var goalInput = document.querySelector('.goal');
 var startActivityBtn = document.querySelector('.start-activity');
 var asideContainer = document.querySelector('.aside-form');
+var alertText = document.querySelector('.alert-text')
+var formInput = document.querySelectorAll('input')
+var input1 = document.getElementById('input-1');
+var input2 = document.getElementById('input-2');
+var input3 = document.getElementById('input-3');
+
 
 
 document.querySelector('.start-activity').addEventListener('click', showTimer);
+studyButton.addEventListener('click', studyColor);
+startActivityBtn.addEventListener('click', startError);
+// document.querySelector('.start-activity').addEventListener('click', emptyBoxError);
+
+
+
+// function emptyBoxError() {
+//     alertText.innerHTML = `<img src="warning.svg"
+//       alt="error message icon" class="alert-img"> Missing input information`;
+//     if (minutesInput.value === '') {
+//       minutesInput.style.border = '1px solid red';
+//     } else {
+//       minutesInput.style.border = '';
+//     };
+//     if (secondsInput.value === '') {
+//       secondsInput.style.border = '1px solid red';
+//     } else {
+//       secondsInput.style.border = '';
+//     };
+//   };
+function startError(){
+  if (input1.value === '') {
+      alert('Please fill all fields before continuing.');
+    }
+};
 
 
 function showTimer() {
@@ -28,7 +58,8 @@ function showTimer() {
 
   var startTimer = document.querySelector('.start-activity');
   asideContainer.innerHTML = timerTemplate;
-studyButton.addEventListener('click', studyColor);
+};
+
 
 function studyColor(){
   event.preventDefault();
@@ -57,26 +88,4 @@ function meditateColor(){
   meditateButton.style.borderColor = '#C278FD';
   meditateButton.style.color = '#C278FD';
   meditateButton.style.backgroundImage = "url('meditate-active.svg')";
-
-};
-
-
-
-
-
-
-
-
-var startButton = document.querySelector('.start-button');
-var input1 = document.getElementById('input-1');
-var input2 = document.getElementById('input-2');
-var input3 = document.getElementById('input-3');
-
-
-startButton.addEventListener('click', startError);
-
-function startError(){
-  if (input1.value === '') {
-      alert('Please fill all fields before continuing.');
-    }
 };
