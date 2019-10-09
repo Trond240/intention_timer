@@ -37,16 +37,18 @@ aside {
   display: flex;
   justify-content: center;
 }
- label {
+
+label {
    color: white;
  }
-
 
 input {
   border: 0;
   background: #46424D;
   border-color: #46424D;
-  border-bottom: solid 1px white;
+  border-top: 0;
+  border-left: 0;
+  border-bottom-color: white;
   color: white;
 }
 
