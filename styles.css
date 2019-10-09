@@ -134,3 +134,26 @@ h2, .aside-title, .section-title {
    background-color: #2B2733;
    border-left: solid 2px #46424D;
  }
+.aside-showTimer {
+  display: flex;
+  justify-content: center;
+}
+
+.timer-page {
+    background-color: #46424D;
+    margin: 4% 2%;
+    padding: 1.5% 2%;
+    width: 90%;
+    height: 80%;
+    border-radius: 4px;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+.start {
+    border-radius: 400px;
+    width: 80%;
+    height: 42%;
+    background-color: #46424D;
+    border: solid 1px white;
+}
