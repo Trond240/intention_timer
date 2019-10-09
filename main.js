@@ -1,3 +1,5 @@
+// Functions to change button colors
+
 var studyButton = document.querySelector('.study-button');
 
 var meditateButton = document.querySelector('.meditate-button');
@@ -56,4 +58,25 @@ function meditateColor(){
   meditateButton.style.color = '#C278FD';
   meditateButton.style.backgroundImage = "url('meditate-active.svg')";
 
+};
+
+
+
+
+
+
+
+
+var startButton = document.querySelector('.start-button');
+var input1 = document.getElementById('input-1');
+var input2 = document.getElementById('input-2');
+var input3 = document.getElementById('input-3');
+
+
+startButton.addEventListener('click', startError);
+
+function startError(){
+  if (input1.value === '') {
+      alert('Please fill all fields before continuing.');
+    }
 };
