@@ -76,7 +76,6 @@ input {
 h2, .aside-title, .section-title {
   color: #FFFFFF;
   padding-top: 20px;
-
 }
 
 .category {
@@ -129,6 +128,22 @@ h2, .aside-title, .section-title {
   background-size: 30px 30px;
   background-position: top center;
 }
+
+.error-span {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-image {
+  height: 7%;
+  width: 7%;
+}
+
  main {
    height: 900px;
    width: 30%;
