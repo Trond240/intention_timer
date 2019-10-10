@@ -1,5 +1,3 @@
-// Functions to change button colors
-
 var studyButton = document.querySelector('.study-button');
 var meditateButton = document.querySelector('.meditate-button');
 var exerciseButton = document.querySelector('.exercise-button');
@@ -49,8 +47,8 @@ function showTimer() {
   var timerTemplate = `
 <aside class='aside-timer'>
     <section class='timer-page'>
-      <h2>${goalInput.value}</h2>
-      <h1 class='minutes-seconds'>${minutesInput.value}:${secondsInput.value}<h2>
+      <h2 class ='timer-heading'>${goalInput.value}</h2>
+      <h2 class='minutes-seconds'>${minutesInput.value}:${secondsInput.value}</h2>
       <button class="Start">Start</button>
     </section
   </aside>
