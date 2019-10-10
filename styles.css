@@ -33,7 +33,6 @@ aside {
   height: 900px;
   width: 70%;
   background-color: #2B2733;
-  border-right: solid 2px #46424D;
   display: flex;
   justify-content: center;
 }
@@ -49,6 +48,29 @@ input {
   border-left: 0;
   border-bottom: solid 2px white;
   color: white;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.minutes, .seconds {
+  width: 40%;
+  display: block;
+}
+
+.goal {
+  width: 100%;
+}
+
+.start-activity {
+  margin-top: 4%;
+  width: 150px;
+  height: 40px;
+  font-size: 1em;
+  color: #46424D;
 }
 
 .activity-form {
@@ -78,6 +100,10 @@ h2, .aside-title, .section-title {
   padding-top: 20px;
 }
 
+.aside-title {
+  display: block;
+}
+
 .category {
   color: #FFFFFF;
   padding-bottom: 20px;
@@ -101,6 +127,7 @@ h2, .aside-title, .section-title {
   /* display: flex;
   justify-content: space-between; */
   padding-top: 30%;
+  display: block;
 }
 
 .study-button {
@@ -144,15 +171,32 @@ h2, .aside-title, .section-title {
   width: 7%;
 }
 
+
  main {
    height: 900px;
    width: 30%;
    background-color: #2B2733;
    border-left: solid 2px #46424D;
  }
+
+ .main-title, .section-title {
+   padding-left: 10px;
+ }
+
 .aside-showTimer {
   display: flex;
   justify-content: center;
+}
+
+.aside-timer {
+  background-color: #46424D;
+    margin: 4% 2%;
+    padding: 1.5% 2%;
+    width: 90%;
+    height: 80%;
+    border-radius: 4px;
+    padding-right: 10%;
+    padding-left: 10%;
 }
 
 .timer-page {
@@ -166,10 +210,26 @@ h2, .aside-title, .section-title {
     padding-left: 10%;
 }
 
+.minutes-seconds {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+}
+
+.timer-heading {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5em;
+}
+
 .start {
     border-radius: 400px;
-    width: 80%;
-    height: 42%;
+    width: 59%;
+    height: 54%;
     background-color: #46424D;
-    border: solid 1px white;
+    border: solid 2px white;
+    font-size: 2.5em;
+    color: white;
+    margin-left: 22%;
+    margin-top: 15%;
 }
