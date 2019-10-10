@@ -156,6 +156,21 @@ h2, .aside-title, .section-title {
   background-position: top center;
 }
 
+.error-span {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-image {
+  height: 7%;
+  width: 7%;
+}
+
 
  main {
    height: 900px;

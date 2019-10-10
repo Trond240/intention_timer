@@ -1,46 +1,59 @@
-var studyButton = document.querySelector('.study-button');
-var meditateButton = document.querySelector('.meditate-button');
-var exerciseButton = document.querySelector('.exercise-button');
 var minutesInput = document.querySelector('.minutes');
 var secondsInput = document.querySelector('.seconds');
 var goalInput = document.querySelector('.goal');
 var startActivityBtn = document.querySelector('.start-activity');
 var asideContainer = document.querySelector('.aside-form');
-var alertText = document.querySelector('.alert-text')
-var formInput = document.querySelectorAll('input')
-var input1 = document.getElementById('input-1');
-var input2 = document.getElementById('input-2');
-var input3 = document.getElementById('input-3');
+var alertText = document.querySelector('.alert-text');
+var formInput = document.querySelectorAll('input');
+var inputGoal = document.getElementById('goal-input');
+var inputMinutes = document.getElementById('minutes-input');
+var inputSeconds = document.getElementById('seconds-input');
+var errorMessage = document.querySelector('.error-div');
 
-
-
-document.querySelector('.start-activity').addEventListener('click', showTimer);
-studyButton.addEventListener('click', studyColor);
+// Function for input error
 startActivityBtn.addEventListener('click', startError);
-// document.querySelector('.start-activity').addEventListener('click', emptyBoxError);
-
-
-
-// function emptyBoxError() {
-//     alertText.innerHTML = `<img src="warning.svg"
-//       alt="error message icon" class="alert-img"> Missing input information`;
-//     if (minutesInput.value === '') {
-//       minutesInput.style.border = '1px solid red';
-//     } else {
-//       minutesInput.style.border = '';
-//     };
-//     if (secondsInput.value === '') {
-//       secondsInput.style.border = '1px solid red';
-//     } else {
-//       secondsInput.style.border = '';
-//     };
-//   };
-function startError(){
-  if (input1.value === '') {
-      alert('Please fill all fields before continuing.');
-    }
+function startError() {
+  if (inputGoal.value === '' ||
+      inputMinutes.value === '' ||
+      inputSeconds.value === '') {
+      startActivityBtn.disabled = true;
+    errorImg();
+} else if (inputGoal.value !== '' && inputMinutes.value !== '' && inputSeconds.value !== '') {
+    document.querySelector('.error-span').classList.add('hidden');
+    showTimer();
+  }
 };
 
+function errorImg() {
+  document.querySelector('.error-div').classList.remove('hidden');
+};
+
+inputGoal.addEventListener('keyup', function(){
+  if (inputGoal.value !== ''){
+    startEnable();
+  }
+});
+
+inputMinutes.addEventListener('keyup', function(){
+  if (inputMinutes.value !== ''){
+    startEnable();
+  }
+});
+
+inputSeconds.addEventListener('keyup', function(){
+  if (inputSeconds.value !== ''){
+    startEnable();
+  }
+});
+
+
+function startEnable() {
+  startActivityBtn.disabled = false;
+};
+// classList.remove & input1.style.border = 'solid 2px #FF0000';
+
+
+// Function to start timer
 
 function showTimer() {
   event.preventDefault();
@@ -58,6 +71,11 @@ function showTimer() {
   asideContainer.innerHTML = timerTemplate;
 };
 
+// Functions to change activity button colors
+
+var studyButton = document.querySelector('.study-button');
+
+startActivityBtn.addEventListener('click', startError);
 
 function studyColor(){
   event.preventDefault();
