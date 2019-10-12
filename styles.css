@@ -233,3 +233,7 @@ h2, .aside-title, .section-title {
     margin-left: 22%;
     margin-top: 15%;
 }
+
+.hidden2 {
+  display: none;
+}

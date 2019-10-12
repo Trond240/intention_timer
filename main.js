@@ -10,6 +10,7 @@ var inputMinutes = document.getElementById('minutes-input');
 var inputSeconds = document.getElementById('seconds-input');
 var errorMessage = document.querySelector('.error-div');
 
+
 // Function for input error
 startActivityBtn.addEventListener('click', startError);
 function startError() {
@@ -20,12 +21,12 @@ function startError() {
     errorImg();
 } else if (inputGoal.value !== '' && inputMinutes.value !== '' && inputSeconds.value !== '') {
     document.querySelector('.error-span').classList.add('hidden');
-    showTimer();
+    setTimer();
   }
 };
 
 function errorImg() {
-  document.querySelector('.error-div').classList.remove('hidden');
+  document.querySelector('.error-span').classList.remove('hidden');
 };
 
 inputGoal.addEventListener('keyup', function(){
@@ -51,25 +52,6 @@ function startEnable() {
   startActivityBtn.disabled = false;
 };
 // classList.remove & input1.style.border = 'solid 2px #FF0000';
-
-
-// Function to start timer
-
-function showTimer() {
-  event.preventDefault();
-  var timerTemplate = `
-<aside class='aside-timer'>
-    <section class='timer-page'>
-      <h2 class ='timer-heading'>${goalInput.value}</h2>
-      <h2 class='minutes-seconds'>${minutesInput.value}:${secondsInput.value}</h2>
-      <button class="Start">Start</button>
-    </section
-  </aside>
-  `;
-
-  var startTimer = document.querySelector('.start-activity');
-  asideContainer.innerHTML = timerTemplate;
-};
 
 // Functions to change activity button colors
 
@@ -105,3 +87,59 @@ function meditateColor(){
   meditateButton.style.color = '#C278FD';
   meditateButton.style.backgroundImage = "url('meditate-active.svg')";
 };
+
+// Function to show timer
+
+function showTimer(seconds) {
+  var timerTemplate =
+  `<aside class='aside-timer'>
+      <section class='timer-page'>
+        <h2 class='timer-heading'>${goalInput.value}</h2>
+        <h2 class='minutes-seconds'>${seconds}</h2>
+        <button type="button" class="start">Start</button>
+      </section>
+    </aside>`;
+// ${inputMinutes.value}:${inputSeconds.value}
+  asideContainer.innerHTML = timerTemplate;
+};
+
+
+startActivityBtn.addEventListener('click', setTimer);
+let countdown;
+
+function setTimer(event) {
+  // event.preventDefault();
+  showTimer(inputSeconds.value);
+  // displayTimeLeft(seconds);
+}
+
+var startTimer = document.querySelector('.start');
+startTimer.addEventListener('click', counter);
+
+function counter(seconds) {
+  var seconds = inputSeconds.value;
+  const now = Date.now();
+  const then = now + seconds * 1000;
+  displayTimeLeft(seconds);
+
+  countdown = setInterval(() => {
+    const secondsLeft = Math.round((then - Date.now()) / 1000);
+
+    if(secondsLeft < 0) {
+      clearInterval(countdown);
+      return;
+    }
+
+    displayTimeLeft(secondsLeft);
+  }, 1000);
+}
+
+const timerDisplay = document.querySelector('.minutes-seconds');
+
+function displayTimeLeft(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainderSeconds = seconds % 60;
+  const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
+  timerDisplay.textContent = display;
+  console.log({minutes, remainderSeconds});
+}
