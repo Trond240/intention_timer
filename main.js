@@ -99,8 +99,38 @@ function showTimer(seconds) {
         <button type="button" class="start">Start</button>
       </section>
     </aside>`;
-// ${inputMinutes.value}:${inputSeconds.value}
   asideContainer.innerHTML = timerTemplate;
+
+  var startTimer = document.querySelector('.start');
+  startTimer.addEventListener('click', counter);
+
+  function counter(seconds) {
+    var seconds = inputSeconds.value;
+    const now = Date.now();
+    const then = now + seconds * 1000;
+    displayTimeLeft(seconds);
+
+    countdown = setInterval(() => {
+      const secondsLeft = Math.round((then - Date.now()) / 1000);
+
+      if(secondsLeft < 0) {
+        clearInterval(countdown);
+        return;
+      }
+
+      displayTimeLeft(secondsLeft);
+    }, 1000);
+  }
+
+  const timerDisplay = document.querySelector('.minutes-seconds');
+
+  function displayTimeLeft(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainderSeconds = seconds % 60;
+    const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
+    timerDisplay.textContent = display;
+    console.log({minutes, remainderSeconds});
+  }
 };
 
 
@@ -108,38 +138,5 @@ startActivityBtn.addEventListener('click', setTimer);
 let countdown;
 
 function setTimer(event) {
-  // event.preventDefault();
   showTimer(inputSeconds.value);
-  // displayTimeLeft(seconds);
-}
-
-var startTimer = document.querySelector('.start');
-startTimer.addEventListener('click', counter);
-
-function counter(seconds) {
-  var seconds = inputSeconds.value;
-  const now = Date.now();
-  const then = now + seconds * 1000;
-  displayTimeLeft(seconds);
-
-  countdown = setInterval(() => {
-    const secondsLeft = Math.round((then - Date.now()) / 1000);
-
-    if(secondsLeft < 0) {
-      clearInterval(countdown);
-      return;
-    }
-
-    displayTimeLeft(secondsLeft);
-  }, 1000);
-}
-
-const timerDisplay = document.querySelector('.minutes-seconds');
-
-function displayTimeLeft(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const remainderSeconds = seconds % 60;
-  const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
-  timerDisplay.textContent = display;
-  console.log({minutes, remainderSeconds});
 }
