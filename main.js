@@ -21,8 +21,8 @@ studyButton.addEventListener('click', function(){
   event.preventDefault();
   studyButton.classList.toggle('active-study-button');
   // timerBtn.classList.toggle('study-color');
-  // timerButton.classList.remove('');
-  // timerButton.classList.remove('');
+  // timerBtn.classList.remove('exercise-color');
+  // timerBtn.classList.remove('meditate-color');
   exerciseButton.classList.remove('active-exercise-button');
   meditateButton.classList.remove('active-meditate-button');
 });
@@ -30,9 +30,9 @@ studyButton.addEventListener('click', function(){
 meditateButton.addEventListener('click', function(){
   event.preventDefault();
   meditateButton.classList.toggle('active-meditate-button');
-  // timerBtn.classList.toggle('study-color');
-  // timerButton.classList.remove('');
-  // timerButton.classList.remove('');
+  // timerBtn.classList.toggle('meditate-color');
+  // timerBtn.classList.remove('study-color');
+  // timerBtn.classList.remove('exercise-color');
   studyButton.classList.remove('active-study-button');
   exerciseButton.classList.remove('active-exercise-button');
 });
@@ -40,9 +40,9 @@ meditateButton.addEventListener('click', function(){
 exerciseButton.addEventListener('click', function(){
   event.preventDefault();
   exerciseButton.classList.toggle('active-exercise-button');
-  // timerBtn.classList.toggle('study-color');
-  // timerButton.classList.remove('');
-  // timerButton.classList.remove('');
+  // timerBtn.classList.toggle('exercise-color');
+  // timerBtn.classList.remove('study-color');
+  // timerBtn.classList.remove('meditate-color');
   studyButton.classList.remove('active-study-button');
   meditateButton.classList.remove('active-meditate-button');
 });
@@ -50,8 +50,8 @@ exerciseButton.addEventListener('click', function(){
 // Function for input error
 startActivityBtn.addEventListener('click', startError);
 function startError() {
-  if (inputGoal.value === '' ||
-      inputMinutes.value === '' ||
+  if (inputGoal.value === '' &&
+      inputMinutes.value === '' &&
       inputSeconds.value === '') {
       startActivityBtn.disabled = true;
     errorImg();
@@ -93,11 +93,13 @@ function showTimer(seconds) {
   `<aside class='aside-timer'>
       <section class='timer-page'>
         <h2 class='timer-heading'>${goalInput.value}</h2>
-        <h2 class='minutes-seconds'>${seconds}</h2>
+        <h2 class='minutes-seconds'>${inputMinutes.value}:${seconds}</h2>
         <button type="button" class="start">Start</button>
+        <button type="button" class="log-button">log-activity</button>
       </section>
     </aside>`;
   asideContainer.innerHTML = timerTemplate;
+
 
   var startTimer = document.querySelector('.start');
   startTimer.addEventListener('click', counter);
@@ -139,12 +141,20 @@ function setTimer(event) {
   showTimer(inputSeconds.value);
 }
 
-function alertMsg() {
-  alert('Time has expired!!!');
-}
-
-function timeAlert(){
-  if (remainderSeconds.textContent ==! 0) {
-  alertMsg();
+function taskComplete() {
+  if (remainderSeconds === 0) {
+    timerBtn.innerHTML = 'COMPLETE!!!';
+    document.querySelector('.log-button').classList.remove('invisible');
+    // document.querySelector('.minutes-seconds').classList.add('hidden');
+    // document.querySelector('.motivate').classList.remove('hidden');
   }
-};
+}
+// function alertMsg() {
+//   alert('Time has expired!!!');
+// }
+//
+// function timeAlert(){
+//   if (remainderSeconds.textContent ==! 0) {
+//   alertMsg();
+//   }
+// };
