@@ -130,6 +130,8 @@ h2, .aside-title, .section-title {
   display: block;
 }
 
+/* non active study button */
+
 .study-button {
   background-color: #46424D;
   background-image: url('study.svg');
@@ -155,6 +157,38 @@ h2, .aside-title, .section-title {
   background-size: 30px 30px;
   background-position: top center;
 }
+
+/* active styling */
+
+.active-study-button {
+  border-color: #B3FD78;
+  background-image: url('study-active.svg');
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: top center;
+  color: #B3FD78;
+  /* display: flex;
+  align-content: center; */
+}
+
+.active-meditate-button {
+  border-color: #C278FD;
+  background-image: url('meditate-active.svg');
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: top center;
+  color: #C278FD;
+}
+
+.active-exercise-button {
+  border-color: #FD8078;
+  background-image: url('exercise-active.svg');
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: top center;
+  color: #FD8078;
+}
+
 
 .error-span {
   display: flex;
@@ -232,6 +266,10 @@ h2, .aside-title, .section-title {
     color: white;
     margin-left: 22%;
     margin-top: 15%;
+}
+
+.study-color {
+  border: #B3FD78;
 }
 
 .hidden2 {
