@@ -39,6 +39,7 @@ aside {
 
 label {
    color: white;
+   font-size: 1.2em;
  }
 
 input {
@@ -59,6 +60,10 @@ input[type=number]::-webkit-outer-spin-button {
 .minutes, .seconds {
   width: 40%;
   display: block;
+  width: 40%;
+  display: block;
+  height: 45px;
+  font-size: 1.2em;
 }
 
 .goal {
@@ -71,6 +76,7 @@ input[type=number]::-webkit-outer-spin-button {
   height: 40px;
   font-size: 1em;
   color: #46424D;
+  float: right;
 }
 
 .activity-form {
@@ -85,8 +91,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .btn {
-  height: 70px;
-  width: 180px;
+  height: 80px;
+  width: 195px;
   background-color: #46424D;
   color: #FFFFFF;
   border-radius: 4px;
@@ -117,6 +123,8 @@ h2, .aside-title, .section-title {
 .goal {
   display: flex;
   align-content: center;
+  height: 45px;
+  font-size: 1.2em;
 }
 
 .goal-input {
@@ -126,9 +134,11 @@ h2, .aside-title, .section-title {
 .bottom-form {
   /* display: flex;
   justify-content: space-between; */
-  padding-top: 30%;
+  padding-top: 15%;
   display: block;
 }
+
+/* non active study button */
 
 .study-button {
   background-color: #46424D;
@@ -155,6 +165,36 @@ h2, .aside-title, .section-title {
   background-size: 30px 30px;
   background-position: top center;
 }
+
+/* active styling */
+
+.active-study-button {
+  border-color: #B3FD78;
+  background-image: url('study-active.svg');
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: top center;
+  color: #B3FD78;
+}
+
+.active-meditate-button {
+  border-color: #C278FD;
+  background-image: url('meditate-active.svg');
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: top center;
+  color: #C278FD;
+}
+
+.active-exercise-button {
+  border-color: #FD8078;
+  background-image: url('exercise-active.svg');
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: top center;
+  color: #FD8078;
+}
+
 
 .error-span {
   display: flex;
@@ -227,13 +267,29 @@ h2, .aside-title, .section-title {
     width: 59%;
     height: 54%;
     background-color: #46424D;
-    border: solid 2px white;
+    border: solid 3px white;
     font-size: 2.5em;
     color: white;
     margin-left: 22%;
     margin-top: 15%;
 }
 
+.study-color {
+  border-color: #B3FD78;
+}
+
+.exercise-color {
+  border-color: #FD8078;
+}
+
+.meditate-color {
+  border-color: #C278FD;
+}
+
 .hidden2 {
+  display: none;
+}
+
+.log-button {
   display: none;
 }

@@ -9,13 +9,49 @@ var inputGoal = document.getElementById('goal-input');
 var inputMinutes = document.getElementById('minutes-input');
 var inputSeconds = document.getElementById('seconds-input');
 var errorMessage = document.querySelector('.error-div');
+var timerBtn = document.querySelector('.study');
+var studyButton = document.querySelector('.study-button');
+var exerciseButton = document.querySelector('.exercise-button');
+var meditateButton = document.querySelector('.meditate-button');
 
+
+
+// creater additonal properties in css.
+studyButton.addEventListener('click', function(){
+  event.preventDefault();
+  studyButton.classList.toggle('active-study-button');
+  // timerBtn.classList.toggle('study-color');
+  // timerBtn.classList.remove('exercise-color');
+  // timerBtn.classList.remove('meditate-color');
+  exerciseButton.classList.remove('active-exercise-button');
+  meditateButton.classList.remove('active-meditate-button');
+});
+
+meditateButton.addEventListener('click', function(){
+  event.preventDefault();
+  meditateButton.classList.toggle('active-meditate-button');
+  // timerBtn.classList.toggle('meditate-color');
+  // timerBtn.classList.remove('study-color');
+  // timerBtn.classList.remove('exercise-color');
+  studyButton.classList.remove('active-study-button');
+  exerciseButton.classList.remove('active-exercise-button');
+});
+
+exerciseButton.addEventListener('click', function(){
+  event.preventDefault();
+  exerciseButton.classList.toggle('active-exercise-button');
+  // timerBtn.classList.toggle('exercise-color');
+  // timerBtn.classList.remove('study-color');
+  // timerBtn.classList.remove('meditate-color');
+  studyButton.classList.remove('active-study-button');
+  meditateButton.classList.remove('active-meditate-button');
+});
 
 // Function for input error
 startActivityBtn.addEventListener('click', startError);
 function startError() {
-  if (inputGoal.value === '' ||
-      inputMinutes.value === '' ||
+  if (inputGoal.value === '' &&
+      inputMinutes.value === '' &&
       inputSeconds.value === '') {
       startActivityBtn.disabled = true;
     errorImg();
@@ -51,55 +87,19 @@ inputSeconds.addEventListener('keyup', function(){
 function startEnable() {
   startActivityBtn.disabled = false;
 };
-// classList.remove & input1.style.border = 'solid 2px #FF0000';
-
-// Functions to change activity button colors
-
-var studyButton = document.querySelector('.study-button');
-
-startActivityBtn.addEventListener('click', startError);
-
-function studyColor(){
-  event.preventDefault();
-  studyButton.style.borderColor = '#B3FD78';
-  studyButton.style.color = '#B3FD78';
-  studyButton.style.backgroundImage = "url('study-active.svg')";
-};
-
-var exerciseButton = document.querySelector('.exercise-button');
-
-exerciseButton.addEventListener('click', exerciseColor);
-
-function exerciseColor(){
-  event.preventDefault();
-  exerciseButton.style.borderColor = '#FD8078';
-  exerciseButton.style.color = '#FD8078';
-  exerciseButton.style.backgroundImage = "url('exercise-active.svg')";
-};
-
-var meditateButton = document.querySelector('.meditate-button');
-
-meditateButton.addEventListener('click', meditateColor);
-
-function meditateColor(){
-  event.preventDefault();
-  meditateButton.style.borderColor = '#C278FD';
-  meditateButton.style.color = '#C278FD';
-  meditateButton.style.backgroundImage = "url('meditate-active.svg')";
-};
-
-// Function to show timer
 
 function showTimer(seconds) {
   var timerTemplate =
   `<aside class='aside-timer'>
       <section class='timer-page'>
         <h2 class='timer-heading'>${goalInput.value}</h2>
-        <h2 class='minutes-seconds'>${seconds}</h2>
+        <h2 class='minutes-seconds'>${inputMinutes.value}:${seconds}</h2>
         <button type="button" class="start">Start</button>
+        <button type="button" class="log-button">log-activity</button>
       </section>
     </aside>`;
   asideContainer.innerHTML = timerTemplate;
+
 
   var startTimer = document.querySelector('.start');
   startTimer.addEventListener('click', counter);
@@ -140,3 +140,21 @@ let countdown;
 function setTimer(event) {
   showTimer(inputSeconds.value);
 }
+
+function taskComplete() {
+  if (remainderSeconds === 0) {
+    timerBtn.innerHTML = 'COMPLETE!!!';
+    document.querySelector('.log-button').classList.remove('invisible');
+    // document.querySelector('.minutes-seconds').classList.add('hidden');
+    // document.querySelector('.motivate').classList.remove('hidden');
+  }
+}
+// function alertMsg() {
+//   alert('Time has expired!!!');
+// }
+//
+// function timeAlert(){
+//   if (remainderSeconds.textContent ==! 0) {
+//   alertMsg();
+//   }
+// };
