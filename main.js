@@ -88,24 +88,41 @@ function meditateColor(){
   meditateButton.style.backgroundImage = "url('meditate-active.svg')";
 };
 
-// Function to show timer
+// function for timer
+
+startActivityBtn.addEventListener('click', setTimer);
+let countdown;
+
+function setTimer(event) {
+  var sec = parseInt(inputSeconds.value);
+  var min = parseInt(inputMinutes.value) * 60;
+  var time = (min + sec);
+  showTimer(time);
+}
 
 function showTimer(seconds) {
+  const minutes1 = inputMinutes.value;
+  const remainderSeconds = seconds % 60;
+  console.log(minutes1);
+  console.log(seconds);
   var timerTemplate =
   `<aside class='aside-timer'>
       <section class='timer-page'>
         <h2 class='timer-heading'>${goalInput.value}</h2>
-        <h2 class='minutes-seconds'>${seconds}</h2>
+        <h2 class='minutes-seconds'>${minutes1}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}</h2>
         <button type="button" class="start">Start</button>
       </section>
     </aside>`;
   asideContainer.innerHTML = timerTemplate;
 
   var startTimer = document.querySelector('.start');
-  startTimer.addEventListener('click', counter);
+  startTimer.addEventListener('click', runTimer);
+
+  function runTimer(event) {
+    counter(seconds);
+}
 
   function counter(seconds) {
-    var seconds = inputSeconds.value;
     const now = Date.now();
     const then = now + seconds * 1000;
     displayTimeLeft(seconds);
@@ -132,11 +149,3 @@ function showTimer(seconds) {
     console.log({minutes, remainderSeconds});
   }
 };
-
-
-startActivityBtn.addEventListener('click', setTimer);
-let countdown;
-
-function setTimer(event) {
-  showTimer(inputSeconds.value);
-}
