@@ -16,6 +16,7 @@ var meditateButton = document.querySelector('.meditate-button');
 
 
 
+
 // creater additonal properties in css.
 studyButton.addEventListener('click', function(){
   event.preventDefault();
@@ -88,11 +89,12 @@ function startEnable() {
   startActivityBtn.disabled = false;
 };
 
-
 // function for timer
 
 startActivityBtn.addEventListener('click', setTimer);
 let countdown;
+
+
 
 function setTimer(event) {
   var sec = parseInt(inputSeconds.value);
@@ -103,20 +105,19 @@ function setTimer(event) {
 
 function showTimer(seconds) {
   const minutes1 = inputMinutes.value;
-  const remainderSeconds = seconds % 60;
-  console.log(minutes1);
-  console.log(seconds);
+  var remainderSeconds = seconds % 60;
   var timerTemplate =
   `<aside class='aside-timer'>
       <section class='timer-page'>
         <h2 class='timer-heading'>${goalInput.value}</h2>
         <h2 class='minutes-seconds'>${minutes1}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}</h2>
         <button type="button" class="start">Start</button>
-        <button type="button" class="log-button">log-activity</button>
+        <div class='log-button'>
+
+        </div>
       </section>
     </aside>`;
   asideContainer.innerHTML = timerTemplate;
-
 
   var startTimer = document.querySelector('.start');
   startTimer.addEventListener('click', runTimer);
@@ -132,52 +133,28 @@ function showTimer(seconds) {
 
     countdown = setInterval(() => {
       const secondsLeft = Math.round((then - Date.now()) / 1000);
-
       if(secondsLeft < 0) {
         clearInterval(countdown);
         return;
       }
-
       displayTimeLeft(secondsLeft);
     }, 1000);
   }
 
   const timerDisplay = document.querySelector('.minutes-seconds');
-
   function displayTimeLeft(seconds) {
     const minutes = Math.floor(seconds / 60);
-    const remainderSeconds = seconds % 60;
+    var remainderSeconds = seconds % 60;
     const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
     timerDisplay.textContent = display;
     console.log({minutes, remainderSeconds});
+
+    var logButton = document.querySelector('.log-button');
+
+    if (remainderSeconds === -0 && minutes === 0){
+      startTimer.innerHTML = 'Task Complete!';
+      timerDisplay.innerHTML = 'Good Job!';
+      logButton.innerHTML += `<button type="button" class="log">log-activity</button>`;
+    }
   }
 };
-
-
-
-
-startActivityBtn.addEventListener('click', setTimer);
-let countdown;
-
-function setTimer(event) {
-  showTimer(inputSeconds.value);
-}
-
-function taskComplete() {
-  if (remainderSeconds === 0) {
-    timerBtn.innerHTML = 'COMPLETE!!!';
-    document.querySelector('.log-button').classList.remove('invisible');
-    // document.querySelector('.minutes-seconds').classList.add('hidden');
-    // document.querySelector('.motivate').classList.remove('hidden');
-  }
-}
-// function alertMsg() {
-//   alert('Time has expired!!!');
-// }
-//
-// function timeAlert(){
-//   if (remainderSeconds.textContent ==! 0) {
-//   alertMsg();
-//   }
-// };
-
