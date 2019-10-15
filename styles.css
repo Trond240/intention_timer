@@ -107,7 +107,9 @@ h2, .aside-title, .section-title {
 }
 
 .aside-title {
-  display: block;
+  display: flex;
+  flex-direction:
+
 }
 
 .category {
@@ -287,9 +289,5 @@ h2, .aside-title, .section-title {
 }
 
 .hidden2 {
-  display: none;
-}
-
-.log-button {
   display: none;
 }
