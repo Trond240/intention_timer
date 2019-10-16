@@ -1,21 +1,22 @@
-var minutesInput = document.querySelector('.minutes');
-var secondsInput = document.querySelector('.seconds');
-var goalInput = document.querySelector('.goal');
-var startActivityBtn = document.querySelector('.start-activity');
-var asideContainer = document.querySelector('.aside-form');
 var alertText = document.querySelector('.alert-text');
+var asideContainer = document.querySelector('.aside-form');
+var errorMessage = document.querySelector('.error-div');
+var exerciseButton = document.querySelector('.exercise-button');
 var formInput = document.querySelectorAll('input');
+var goalInput = document.querySelector('.goal');
 var inputGoal = document.getElementById('goal-input');
 var inputMinutes = document.getElementById('minutes-input');
 var inputSeconds = document.getElementById('seconds-input');
-var errorMessage = document.querySelector('.error-div');
-var timerBtn = document.querySelector('.start');
-var studyButton = document.querySelector('.study-button');
-var exerciseButton = document.querySelector('.exercise-button');
 var meditateButton = document.querySelector('.meditate-button');
+var minutesInput = document.querySelector('.minutes');
+var secondsInput = document.querySelector('.seconds');
+var startActivityBtn = document.querySelector('.start-activity');
+var studyButton = document.querySelector('.study-button');
+var timerBtn = document.querySelector('.start');
 
 // Function for input error
 startActivityBtn.addEventListener('click', startError);
+
 function startError() {
   if (inputGoal.value === '' &&
       inputMinutes.value === '' &&
@@ -64,9 +65,6 @@ function startEnable() {
 studyButton.addEventListener('click', function(){
   event.preventDefault();
   studyButton.classList.toggle('active-study-button');
-  // timerBtn.classList.toggle('study-color');
-  // timerBtn.classList.remove('exercise-color');
-  // timerBtn.classList.remove('meditate-color');
   exerciseButton.classList.remove('active-exercise-button');
   meditateButton.classList.remove('active-meditate-button');
 });
@@ -74,9 +72,6 @@ studyButton.addEventListener('click', function(){
 meditateButton.addEventListener('click', function(){
   event.preventDefault();
   meditateButton.classList.toggle('active-meditate-button');
-  // timerBtn.classList.toggle('meditate-color');
-  // timerBtn.classList.remove('study-color');
-  // timerBtn.classList.remove('exercise-color');
   studyButton.classList.remove('active-study-button');
   exerciseButton.classList.remove('active-exercise-button');
 });
@@ -84,16 +79,9 @@ meditateButton.addEventListener('click', function(){
 exerciseButton.addEventListener('click', function(){
   event.preventDefault();
   exerciseButton.classList.toggle('active-exercise-button');
-  // timerBtn.classList.toggle('exercise-color');
-  // timerBtn.classList.remove('study-color');
-  // timerBtn.classList.remove('meditate-color');
   studyButton.classList.remove('active-study-button');
   meditateButton.classList.remove('active-meditate-button');
 });
-
-
-// function for timer
-
 
 let countdown;
 
@@ -108,7 +96,10 @@ function showTimer(seconds) {
   const minutes1 = inputMinutes.value;
   var remainderSeconds = seconds % 60;
   var timerTemplate =
-  `    <h1>Current Activity</h1>
+  `
+  <div class ='heading'>
+    <h1 class='aside-title'>Current Activity</h1>
+  </div>
   <aside class='aside-timer'>
     <section class='timer-page'>
         <h2 class='timer-heading'>${goalInput.value}</h2>
@@ -127,7 +118,6 @@ function showTimer(seconds) {
   function runTimer(event) {
     counter(seconds);
 }
-
   function counter(seconds) {
     const now = Date.now();
     const then = now + seconds * 1000;
