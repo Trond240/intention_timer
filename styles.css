@@ -320,3 +320,7 @@ h2, .aside-title, .section-title {
   text-align: center;
   width: 150px;
 }
+
+.hide-timer {
+  visibility: hidden;
+}
