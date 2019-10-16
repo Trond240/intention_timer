@@ -18,12 +18,12 @@ var timerBtn = document.querySelector('.start');
 startActivityBtn.addEventListener('click', startError);
 
 function startError() {
-  if (inputGoal.value === '' &&
-      inputMinutes.value === '' &&
+  if (inputGoal.value === '' ||
+      inputMinutes.value === '' ||
       inputSeconds.value === '') {
       startActivityBtn.disabled = true;
       errorImg();
-} else if (inputGoal.value !== '' && inputMinutes.value !== '' && inputSeconds.value !== '') {
+  } else if (inputGoal.value !== '' && inputMinutes.value !== '' && inputSeconds.value !== '') {
     document.querySelector('.error-span').classList.add('hidden');
     setTimer();
   }
@@ -162,24 +162,30 @@ function showTimer(seconds) {
     if (remainderSeconds === -0 && minutes === 0){
       startTimer.innerHTML = 'Task Complete!';
       timerDisplay.innerHTML = 'Good Job!';
-      logButton.innerHTML += `<button type="button" class="log">log-activity</button>`;
+      logButton.innerHTML += `<button type="button" class="log">Log Activity</button>`;
     }
 }
 
 // Adds past activity cards with information based on user inputs.
   function addCard(){
-    if (startColor === 1) {
-      var category = 'Study';
-    } if (startColor === 2) {
-      var category = 'Meditate';
-    } if (startColor === 3) {
-      var category = 'Exercise';
-    }
-    var mainTemplate = `<h2 class='main-title'>Past Activities</h2><div class='card'>
+    var mainTemplate = `<h2 class='main-title'>Past Activities</h2>
+     <div class='card'>
+     <div class='box'></div>
      <h3>${category}</h3>
      <h5>${inputMinutes.value} Min ${inputSeconds.value} Seconds</h5>
      <h3>${goalInput.value}</h4>
      </div>`;
      main.innerHTML = mainTemplate;
+     var box = document.querySelector('.box');
+     if (startColor === 1) {
+       var category = 'Study';
+       box.classList.add('stu-color');
+     } if (startColor === 2) {
+       var category = 'Meditate';
+       box.classList.add('med-color');
+     } if (startColor === 3) {
+       var category = 'Exercise';
+       box.classList.add('ex-color');
+     }
   }
 };
