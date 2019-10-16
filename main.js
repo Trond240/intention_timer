@@ -16,6 +16,7 @@ var timerBtn = document.querySelector('.start');
 
 // Checks if inputs are filled.
 startActivityBtn.addEventListener('click', startError);
+
 function startError() {
   if (inputGoal.value === '' &&
       inputMinutes.value === '' &&
@@ -95,9 +96,9 @@ function showTimer(seconds) {
   const minutes1 = inputMinutes.value;
   var remainderSeconds = seconds % 60;
   var timerTemplate =
-  `    <h1>Current Activity</h1>
-    <aside class='aside-timer'>
-    <section class='timer-page'>
+  `<h1>Current Activity</h1>
+        <aside class='aside-timer'>
+        <section class='timer-page'>
         <h2 class='timer-heading'>${goalInput.value}</h2>
         <h2 class='minutes-seconds'>${minutes1}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}</h2>
         <button type="button" class="start">Start</button>
