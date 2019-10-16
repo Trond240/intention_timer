@@ -1,3 +1,4 @@
+/* full page!!! */
 * {
   font-family: 'Montserrat', sans-serif;
 }
@@ -23,31 +24,37 @@ header {
   justify-content: center;
 }
 
+.heading {
+  display: block;
+}
+
 h1 {
-  font-size: 3em;
   color: white;
+  font-size: 3em;
   font-weight: 100;
 }
 
+/* aside container */
 aside {
-  height: 900px;
-  width: 70%;
   background-color: #2B2733;
-  display: flex;
+  height: 900px;
   justify-content: center;
+  width: 70%;
 }
 
 label {
    color: white;
    font-size: 1.2em;
+   display: flex;
+   justify-content: space-between;
  }
 
+/* button input/labels */
 input {
   background: #46424D;
   border-color: #46424D;
-  border-top: 0;
   border-left: 0;
-  border-bottom: solid 2px white;
+  border-top: 0;
   color: white;
 }
 
@@ -58,48 +65,50 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .minutes, .seconds {
-  width: 40%;
   display: block;
-  width: 40%;
-  display: block;
-  height: 45px;
   font-size: 1.2em;
+  height: 45px;
+  width: 40%;
+  border-bottom: solid 2px white;
 }
 
 .goal {
   width: 100%;
+  border-bottom: solid 2px white;
 }
-
+/* start activity page */
 .start-activity {
-  margin-top: 4%;
-  width: 150px;
-  height: 40px;
-  font-size: 1em;
   color: #46424D;
   float: right;
+  font-size: 1em;
+  height: 40px;
+  margin-top: 50px;
+  width: 150px;
+
 }
 
 .activity-form {
   background-color: #46424D;
-  margin: 4% 2%;
-  padding: 1.5% 2%;
-  width: 90%;
-  height: 80%;
   border-radius: 4px;
-  padding-right: 10%;
+  height: 80%;
+  margin-left: 50px;
+  margin-top: 20px;
   padding-left: 10%;
+  padding-right: 10%;
+  width: 90%;
 }
 
 .btn {
-  height: 80px;
-  width: 195px;
   background-color: #46424D;
-  color: #FFFFFF;
   border-radius: 4px;
+  color: #FFFFFF;
   display: flex;
+  height: 80px;
   justify-content: center;
   padding-top: 14px;
+  width: 195px;
 }
+
 
 h2, .aside-title, .section-title {
   color: #FFFFFF;
@@ -107,9 +116,7 @@ h2, .aside-title, .section-title {
 }
 
 .aside-title {
-  display: flex;
-  flex-direction:
-
+  font-size: 1.5em;
 }
 
 .category {
@@ -123,10 +130,10 @@ h2, .aside-title, .section-title {
 }
 
 .goal {
-  display: flex;
   align-content: center;
-  height: 45px;
+  display: flex;
   font-size: 1.2em;
+  height: 45px;
 }
 
 .goal-input {
@@ -134,10 +141,9 @@ h2, .aside-title, .section-title {
 }
 
 .bottom-form {
-  /* display: flex;
-  justify-content: space-between; */
   padding-top: 15%;
-  display: block;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* non active study button */
@@ -145,63 +151,67 @@ h2, .aside-title, .section-title {
 .study-button {
   background-color: #46424D;
   background-image: url('study.svg');
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: 30px 30px;
-  background-position: top center;
-  /* display: flex;
-  align-content: center; */
+  border: solid 2px;
+  font-size: larger;
 }
 
 .meditate-button {
   background-color: #46424D;
   background-image: url('meditate.svg');
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: 30px 30px;
-  background-position: top center;
+  border: solid 2px;
+  font-size: larger;
 }
 
 .exercise-button {
   background-color: #46424D;
   background-image: url('exercise.svg');
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: 30px 30px;
-  background-position: top center;
+  border: solid 2px;
+  font-size: larger;
 }
 
 /* active styling */
 
 .active-study-button {
-  border-color: #B3FD78;
   background-image: url('study-active.svg');
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: 30px 30px;
-  background-position: top center;
+  border-color: solid 2px #B3FD78;
   color: #B3FD78;
 }
 
 .active-meditate-button {
-  border-color: #C278FD;
   background-image: url('meditate-active.svg');
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: 30px 30px;
-  background-position: top center;
+  border-color: solid 2px #C278FD;
   color: #C278FD;
 }
 
 .active-exercise-button {
-  border-color: #FD8078;
   background-image: url('exercise-active.svg');
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: 30px 30px;
-  background-position: top center;
+  border-color: solid 2px #FD8078;
   color: #FD8078;
 }
 
 
 .error-span {
+  color: white;
   display: flex;
   justify-content: center;
-  color: white;
 }
 
 .hidden {
@@ -215,10 +225,10 @@ h2, .aside-title, .section-title {
 
 
  main {
-   height: 900px;
-   width: 30%;
    background-color: #2B2733;
    border-left: solid 2px #46424D;
+   height: 900px;
+   width: 30%;
  }
 
  .main-title, .section-title {
@@ -232,48 +242,51 @@ h2, .aside-title, .section-title {
 
 .aside-timer {
   background-color: #46424D;
-    margin: 4% 2%;
-    padding: 1.5% 2%;
-    width: 90%;
-    height: 80%;
-    border-radius: 4px;
-    padding-right: 10%;
-    padding-left: 10%;
+  border-radius: 4px;
+  display: flex;
+  height: 80%;
+  justify-content: center;
+  margin-left: 50px;
+  margin-top: 10px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding: 1.5% 2%;
+  width: 90%;
 }
 
 .timer-page {
-    background-color: #46424D;
-    margin: 4% 2%;
-    padding: 1.5% 2%;
-    width: 90%;
-    height: 80%;
-    border-radius: 4px;
-    padding-right: 10%;
-    padding-left: 10%;
+  background-color: #46424D;
+  border-radius: 4px;
+  height: 80%;
+  margin: 4% 2%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding: 1.5% 2%;
+  width: 90%;
 }
 
 .minutes-seconds {
   display: flex;
-  justify-content: center;
   font-size: 2em;
+  justify-content: center;
 }
 
 .timer-heading {
   display: flex;
-  justify-content: center;
   font-size: 2.5em;
+  justify-content: center;
 }
 
 .start {
-    border-radius: 400px;
-    width: 59%;
-    height: 54%;
-    background-color: #46424D;
-    border: solid 3px white;
-    font-size: 2.5em;
-    color: white;
-    margin-left: 22%;
-    margin-top: 15%;
+  background-color: #46424D;
+  border-radius: 400px;
+  border: solid 3px white;
+  color: white;
+  font-size: 2.5em;
+  height: 54%;
+  margin-left: 22%;
+  margin-top: 15%;
+  width: 59%;
 }
 
 .study-color {
@@ -289,21 +302,21 @@ h2, .aside-title, .section-title {
 }
 
 .card {
-  color: white;
-  width: 70%;
-  height: 100px;
   background-color: #46424D;
+  border-color: white;
   border-radius: 3px;
   border-right: 10px;
-  border-color: white;
   box-shadow: 0px 10px 10px 0px #26222D;
+  color: white;
+  height: 100px;
+  width: 70%;
 }
 
 .log {
-  margin-top: 4%;
-  width: 150px;
-  height: 40px;
-  font-size: 1em;
   color: #46424D;
+  font-size: 1em;
+  height: 40px;
+  margin-top: 4%;
   text-align: center;
+  width: 150px;
 }
