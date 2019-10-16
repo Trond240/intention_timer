@@ -168,6 +168,13 @@ function showTimer(seconds) {
 
 // Adds past activity cards with information based on user inputs.
   function addCard(){
+    if (startColor === 1) {
+      var category = 'Study';
+    } if (startColor === 2) {
+      var category = 'Meditate';
+    } if (startColor === 3) {
+      var category = 'Exercise';
+    }
     var mainTemplate = `<h2 class='main-title'>Past Activities</h2>
      <div class='card'>
      <div class='box'></div>
