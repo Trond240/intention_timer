@@ -9,13 +9,56 @@ var inputGoal = document.getElementById('goal-input');
 var inputMinutes = document.getElementById('minutes-input');
 var inputSeconds = document.getElementById('seconds-input');
 var errorMessage = document.querySelector('.error-div');
-var timerBtn = document.querySelector('.study');
+var timerBtn = document.querySelector('.start');
 var studyButton = document.querySelector('.study-button');
 var exerciseButton = document.querySelector('.exercise-button');
 var meditateButton = document.querySelector('.meditate-button');
 
+// Function for input error
+startActivityBtn.addEventListener('click', startError);
+function startError() {
+  if (inputGoal.value === '' &&
+      inputMinutes.value === '' &&
+      inputSeconds.value === '') {
+      startActivityBtn.disabled = true;
+      errorImg();
+} else if (inputGoal.value !== '' && inputMinutes.value !== '' && inputSeconds.value !== '') {
+    document.querySelector('.error-span').classList.add('hidden');
+    setTimer();
+  }
+};
 
+function errorImg() {
+  document.querySelector('.error-span').classList.remove('hidden');
+};
 
+inputGoal.addEventListener('keyup', function(){
+  if (inputGoal.value !== ''){
+    startEnable();
+  }
+});
+
+inputMinutes.addEventListener('keyup', function(){
+  if (inputMinutes.value !== ''){
+    startEnable();
+  }
+});
+
+inputSeconds.addEventListener('keyup', function(){
+  if (inputSeconds.value !== ''){
+    startEnable();
+  }
+});
+
+function startEnable() {
+  startActivityBtn.disabled = false;
+};
+
+// var variable that changes depending on which button was picked
+// function categorySelect() {
+  // if blah was picked then add to variable
+  // put variable in function below to display which one was picked.
+// }
 
 // creater additonal properties in css.
 studyButton.addEventListener('click', function(){
@@ -48,53 +91,11 @@ exerciseButton.addEventListener('click', function(){
   meditateButton.classList.remove('active-meditate-button');
 });
 
-// Function for input error
-startActivityBtn.addEventListener('click', startError);
-function startError() {
-  if (inputGoal.value === '' &&
-      inputMinutes.value === '' &&
-      inputSeconds.value === '') {
-      startActivityBtn.disabled = true;
-    errorImg();
-} else if (inputGoal.value !== '' && inputMinutes.value !== '' && inputSeconds.value !== '') {
-    document.querySelector('.error-span').classList.add('hidden');
-    setTimer();
-  }
-};
-
-function errorImg() {
-  document.querySelector('.error-span').classList.remove('hidden');
-};
-
-inputGoal.addEventListener('keyup', function(){
-  if (inputGoal.value !== ''){
-    startEnable();
-  }
-});
-
-inputMinutes.addEventListener('keyup', function(){
-  if (inputMinutes.value !== ''){
-    startEnable();
-  }
-});
-
-inputSeconds.addEventListener('keyup', function(){
-  if (inputSeconds.value !== ''){
-    startEnable();
-  }
-});
-
-
-function startEnable() {
-  startActivityBtn.disabled = false;
-};
 
 // function for timer
 
-startActivityBtn.addEventListener('click', setTimer);
+
 let countdown;
-
-
 
 function setTimer(event) {
   var sec = parseInt(inputSeconds.value);
@@ -107,8 +108,9 @@ function showTimer(seconds) {
   const minutes1 = inputMinutes.value;
   var remainderSeconds = seconds % 60;
   var timerTemplate =
-  `<aside class='aside-timer'>
-      <section class='timer-page'>
+  `    <h1>Current Activity</h1>
+  <aside class='aside-timer'>
+    <section class='timer-page'>
         <h2 class='timer-heading'>${goalInput.value}</h2>
         <h2 class='minutes-seconds'>${minutes1}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}</h2>
         <button type="button" class="start">Start</button>
@@ -140,21 +142,28 @@ function showTimer(seconds) {
       displayTimeLeft(secondsLeft);
     }, 1000);
   }
+  var main = document.querySelector('.main');
+  var timerDisplay = document.querySelector('.minutes-seconds');
+  var logButton = document.querySelector('.log-button');
 
-  const timerDisplay = document.querySelector('.minutes-seconds');
   function displayTimeLeft(seconds) {
     const minutes = Math.floor(seconds / 60);
     var remainderSeconds = seconds % 60;
     const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
     timerDisplay.textContent = display;
-    console.log({minutes, remainderSeconds});
-
-    var logButton = document.querySelector('.log-button');
 
     if (remainderSeconds === -0 && minutes === 0){
       startTimer.innerHTML = 'Task Complete!';
       timerDisplay.innerHTML = 'Good Job!';
       logButton.innerHTML += `<button type="button" class="log">log-activity</button>`;
-    }
+    };
+}
+  logButton.addEventListener('click', addCard);
+  function addCard(){
+    var mainTemplate = `<h2 class='main-title'>Past Activities</h2><div class='card'>
+     <h5>${inputMinutes.value} Min ${inputSeconds.value} Seconds</h5>
+     <h3>${goalInput.value}</h4>
+     </div>`;
+     main.innerHTML = mainTemplate;
   }
 };

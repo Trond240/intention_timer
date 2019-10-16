@@ -288,6 +288,22 @@ h2, .aside-title, .section-title {
   border-color: #C278FD;
 }
 
-.hidden2 {
-  display: none;
+.card {
+  color: white;
+  width: 70%;
+  height: 100px;
+  background-color: #46424D;
+  border-radius: 3px;
+  border-right: 10px;
+  border-color: white;
+  box-shadow: 0px 10px 10px 0px #26222D;
+}
+
+.log {
+  margin-top: 4%;
+  width: 150px;
+  height: 40px;
+  font-size: 1em;
+  color: #46424D;
+  text-align: center;
 }
