@@ -22,16 +22,19 @@ header {
   background-color: #46424D;
   display: flex;
   justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .heading {
   display: block;
+
 }
 
 h1 {
   color: white;
-  font-size: 3em;
-  font-weight: 100;
+  font-size: 2em;
+  font-weight: 80;
 }
 
 /* aside container */
@@ -50,6 +53,7 @@ label {
  }
 
 /* button input/labels */
+
 input {
   background: #46424D;
   border-color: #46424D;
@@ -76,7 +80,9 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
   border-bottom: solid 2px white;
 }
+
 /* start activity page */
+
 .start-activity {
   color: #46424D;
   float: right;
@@ -96,6 +102,7 @@ input[type=number]::-webkit-outer-spin-button {
   padding-left: 10%;
   padding-right: 10%;
   width: 90%;
+  box-shadow: 0px 10px 10px 0px #26222D;
 }
 
 .btn {
@@ -108,7 +115,6 @@ input[type=number]::-webkit-outer-spin-button {
   padding-top: 14px;
   width: 195px;
 }
-
 
 h2, .aside-title, .section-title {
   color: #FFFFFF;
@@ -207,7 +213,6 @@ h2, .aside-title, .section-title {
   color: #FD8078;
 }
 
-
 .error-span {
   color: #EFB7EC;
   display: flex;
@@ -225,8 +230,7 @@ h2, .aside-title, .section-title {
   width: 7%;
 }
 
-
- main {
+main {
    background-color: #2B2733;
    border-left: solid 2px #46424D;
    height: 900px;
@@ -254,6 +258,7 @@ h2, .aside-title, .section-title {
   padding-right: 10%;
   padding: 1.5% 2%;
   width: 90%;
+  box-shadow: 0px 10px 10px 0px #26222D;
 }
 
 .timer-page {
@@ -295,13 +300,14 @@ h2, .aside-title, .section-title {
   border-color: #B3FD78;
 }
 
+.meditate-color {
+  border-color: #C278FD;
+}
+
 .exercise-color {
   border-color: #FD8078;
 }
 
-.meditate-color {
-  border-color: #C278FD;
-}
 
 .log {
   color: #46424D;
@@ -321,6 +327,33 @@ h2, .aside-title, .section-title {
   box-shadow: 0px 10px 10px 0px #26222D;
   color: white;
   height: 100px;
+  width: 70%;
+}
+
+.box {
+  float: right;
+  width: 5px;
+  height: 25px;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+.stu-color{
+  background-color: #B3FD78;
+}
+
+.med-color {
+  background-color: #C278FD;
+}
+
+.ex-color {
+  background-color: #FD8078;
+}
+
+.log {
+  color: #46424D;
+  font-size: 1em;
+  height: 40px;
   margin-left: 7%;
   margin-top: 4%;
   padding-left: 4%;
