@@ -96,7 +96,7 @@ function showTimer(seconds) {
   const minutes1 = inputMinutes.value;
   var remainderSeconds = seconds % 60;
   var timerTemplate =
-  `<h1>Current Activity</h1>
+  `<h2 class ='aside-title'>Current Activity</h2>
         <aside class='aside-timer'>
         <section class='timer-page'>
         <h2 class='timer-heading'>${goalInput.value}</h2>
