@@ -18,12 +18,12 @@ var timerBtn = document.querySelector('.start');
 startActivityBtn.addEventListener('click', startError);
 
 function startError() {
-  if (inputGoal.value === '' &&
-      inputMinutes.value === '' &&
+  if (inputGoal.value === '' ||
+      inputMinutes.value === '' ||
       inputSeconds.value === '') {
       startActivityBtn.disabled = true;
       errorImg();
-} else if (inputGoal.value !== '' && inputMinutes.value !== '' && inputSeconds.value !== '') {
+} else if (inputGoal.value === '' && inputMinutes.value === '' && inputSeconds.value === '') {
     document.querySelector('.error-span').classList.add('hidden');
     setTimer();
   }
@@ -96,7 +96,7 @@ function showTimer(seconds) {
   const minutes1 = inputMinutes.value;
   var remainderSeconds = seconds % 60;
   var timerTemplate =
-  `<h1>Current Activity</h1>
+  `<h2 class ='aside-title'>Current Activity</h2>
         <aside class='aside-timer'>
         <section class='timer-page'>
         <h2 class='timer-heading'>${goalInput.value}</h2>
@@ -175,10 +175,12 @@ function showTimer(seconds) {
     } if (startColor === 3) {
       var category = 'Exercise';
     }
-    var mainTemplate = `<h2 class='main-title'>Past Activities</h2><div class='card'>
-     <h3>${category}</h3>
-     <h5>${inputMinutes.value} Min ${inputSeconds.value} Seconds</h5>
-     <h3>${goalInput.value}</h4>
+    var mainTemplate =
+    `<h2 class='main-title'>Past Activities</h2>
+    <div class='card'>
+      <h3>${category}</h3>
+      <h5>${inputMinutes.value} Min ${inputSeconds.value} Seconds</h5>
+      <h3>${goalInput.value}</h4>
      </div>`;
      main.innerHTML = mainTemplate;
   }

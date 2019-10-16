@@ -209,9 +209,11 @@ h2, .aside-title, .section-title {
 
 
 .error-span {
-  color: white;
+  color: #EFB7EC;
   display: flex;
+  font-size: 1em;
   justify-content: center;
+  padding-top: 50px;
 }
 
 .hidden {
@@ -301,6 +303,16 @@ h2, .aside-title, .section-title {
   border-color: #C278FD;
 }
 
+.log {
+  color: #46424D;
+  font-size: 1em;
+  height: 40px;
+  margin-top: 4%;
+  text-align: center;
+  width: 200px;
+  margin-left: 38%;
+}
+
 .card {
   background-color: #46424D;
   border-color: white;
@@ -309,18 +321,11 @@ h2, .aside-title, .section-title {
   box-shadow: 0px 10px 10px 0px #26222D;
   color: white;
   height: 100px;
+  margin-left: 7%;
+  margin-top: 4%;
+  padding-left: 4%;
   width: 70%;
 }
-
-.log {
-  color: #46424D;
-  font-size: 1em;
-  height: 40px;
-  margin-top: 4%;
-  text-align: center;
-  width: 150px;
-}
-
 .hide-timer {
   visibility: hidden;
 }
