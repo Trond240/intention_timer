@@ -17,6 +17,13 @@
   * The app will log that activity to keep track of how the user has been spendiong theri time.
 ### The Comp Recreation
 
+![UNADJUSTEDNONRAW_thumb_b](https://user-images.githubusercontent.com/49410633/66969587-b6cb5a00-f079-11e9-82ea-3ef5e04d76cc.jpg)
+![UNADJUSTEDNONRAW_thumb_b](https://user-images.githubusercontent.com/49410633/66969594-b9c64a80-f079-11e9-8f18-dacbe99d0e49.jpg)
+![Image 10-16-19 at 6 57 PM](https://user-images.githubusercontent.com/49410633/66969595-bcc13b00-f079-11e9-97df-b02c4ebc573c.jpg)
+![Image 10-16-19 at 6 58 PM](https://user-images.githubusercontent.com/49410633/66969598-bf239500-f079-11e9-80ea-71086a17ad79.jpg)
+![Image 10-16-19 at 6 58 PM](https://user-images.githubusercontent.com/49410633/66969601-c0ed5880-f079-11e9-8a50-4a35328aa897.jpg)
+
+
 ### Technologies Used
   * Atom
   * DEV Tools (including debugger)
